@@ -7,7 +7,7 @@ pipeline {
     }
 
     stages {
-        stage('Build') {           
+        stage('Echo Version') {           
                 steps {
                 // Get some code from a GitHub repository
                 sh 'echo Print Maven Version'
