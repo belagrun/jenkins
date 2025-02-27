@@ -18,7 +18,7 @@ pipeline {
         stage('Build') {           
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/belagrun/jenkins.git'
+                //git 'https://github.com/belagrun/jenkins.git'
                 sh 'mvn clean package -DskipTests=true'
             }
 
