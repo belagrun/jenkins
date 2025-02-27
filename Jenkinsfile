@@ -7,30 +7,30 @@ pipeline {
     }
 
     stages {
+        stage('Clone Repository') {           
+            steps {
+                // Obtendo o código do repositório Git
+                git branch: 'main', url: 'https://github.com/belagrun/jenkins.git'
+            }    
+        }
+
         stage('Echo Version') {           
-                steps {
-                // Get some code from a GitHub repository
+            steps {
                 sh 'echo Print Maven Version'
                 sh 'mvn -version'
             }    
-        
         }
+
         stage('Build') {           
             steps {
-                // Get some code from a GitHub repository
-                //git 'https://github.com/belagrun/jenkins.git'
                 sh 'mvn clean package -DskipTests=true'
             }
-
-
         }
 
-        stage('Unit Test')
-        {
+        stage('Unit Test') {
             steps {
                 sh  'mvn test'
             }
-            
         }
     }
 }
